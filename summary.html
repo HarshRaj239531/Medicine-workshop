@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Summary - Research Helix</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #E5E7EB;
+            color: #333;
+        }
+        .navbar {
+            background: #1E3A8A;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar a {
+            color: #A78BFA;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+        }
+        .navbar a:hover {
+            color: #FF6F61;
+        }
+        .summary-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .summary-container h1 {
+            color: #1E3A8A;
+            font-size: 2em;
+        }
+        .summary-container p {
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+        .back-btn {
+            background: #FF6F61;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .back-btn:hover {
+            background: #e65b50;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="#">Research</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </div>
+    <div class="summary-container">
+        <h1 id="title">Loading...</h1>
+        <p id="description"></p>
+        <p id="summary"></p>
+        <button class="back-btn" onclick="window.location.href='/'">Back to Home</button>
+    </div>
+    <script>
+        // Get research ID from URL (e.g., ?id=1)
+        const urlParams = new URLSearchParams(window.location.search);
+        const researchId = urlParams.get('id');
+
+        if (researchId) {
+            fetch(`/api/research/${researchId}`)
+                .then(response => {
+                    if (!response.ok) throw new Error('Research not found');
+                    return response.json();
+                })
+                .then(data => {
+                    document.getElementById('title').textContent = data.title;
+                    document.getElementById('description').textContent = data.description;
+                    document.getElementById('summary').textContent = data.summary;
+                })
+                .catch(error => {
+                    document.getElementById('title').textContent = "Error";
+                    document.getElementById('summary').textContent = "Could not load research summary.";
+                    console.error(error);
+                });
+        } else {
+            document.getElementById('summary').textContent = "No research ID provided.";
+        }
+    </script>
+</body>
+</html>

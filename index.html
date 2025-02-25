@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Workshop - Research Nexus</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #E5E7EB;
+            color: #333;
+        }
+        /* Header */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(to right, #006D77, #E5E7EB);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .navbar a:hover {
+            color: #FF6F61;
+        }
+        /* Hero Section */
+        .hero {
+            height: 300px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23006D77" fill-opacity="0.8" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,208C672,213,768,203,864,192C960,181,1056,171,1152,165.3C1248,160,1344,160,1392,160L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>') no-repeat center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .hero h1 span {
+            border-bottom: 3px solid #FF6F61;
+        }
+        /* Research Cards */
+        .research-section {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card h3 {
+            color: #006D77;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .card p {
+            font-size: 0.9em;
+        }
+        .card button {
+            background: #FF6F61;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .card button:hover {
+            background: #e65b50;
+        }
+        /* Glossary Popup */
+        .glossary-term {
+            color: #FF6F61;
+            cursor: pointer;
+            position: relative;
+        }
+        .glossary-popup {
+            display: none;
+            position: absolute;
+            background: #006D77;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.8em;
+            width: 200px;
+            z-index: 10;
+            top: 100%;
+            left: 0;
+        }
+        .glossary-term:hover .glossary-popup {
+            display: block;
+        }
+        /* Footer */
+        footer {
+            background: #006D77;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#">Medicine Workshop</a>
+        <div>
+            <a href="#">Home</a>
+            <a href="#">Research</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+    <div class="hero">
+        <h1><span>Advancing Medicine</span> Through Research</h1>
+    </div>
+    <div class="research-section">
+        <div class="card">
+            <h3>Study on Neurotransmitters</h3>
+            <p>Exploring the role of <span class="glossary-term">dopamine<span class="glossary-popup">A neurotransmitter affecting mood and motivation.</span></span> in brain function.</p>
+            <button>Explore</button>
+        </div>
+        <div class="card">
+            <h3>Antibiotic Resistance</h3>
+            <p>New findings on combating <span class="glossary-term">MRSA<span class="glossary-popup">Methicillin-resistant Staphylococcus aureus, a tough bacteria.</span></span>.</p>
+            <button>Explore</button>
+        </div>
+        <div class="card">
+            <h3>Gene Therapy Advances</h3>
+            <p>Breakthroughs in <span class="glossary-term">CRISPR<span class="glossary-popup">A gene-editing tool for precise DNA changes.</span></span> applications.</p>
+            <button>Explore</button>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Medicine Workshop | Share Knowledge, Save Lives</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
